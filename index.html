@@ -89,7 +89,7 @@
             transition: background var(--transition-duration);
         }
 
-        .hero.dark-mode {
+        body.dark-mode .hero {
             background: var(--gradient-dark);
         }
 
@@ -128,7 +128,7 @@
             color: var(--text-light);
         }
 
-        .section.dark-mode {
+        body.dark-mode .section {
             background: var(--gradient-dark);
             color: var(--text-dark);
         }
@@ -145,7 +145,7 @@
 
         .portfolio {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -157,6 +157,7 @@
         .portfolio img {
             width: 100%;
             height: auto;
+            max-width: 300px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform var(--transition-duration), box-shadow var(--transition-duration);
@@ -237,11 +238,25 @@
 
     <section class="section" id="portfolio">
         <h3>Portofolio</h3>
+
+        <h4>UI Design Rest Area</h4>
         <div class="portfolio">
             <div class="portfolio-item">
                 <img src="2.png" alt="Rest Area UI Design">
-                <div class="portfolio-title">Rest Area UI Design</div>
+                <div class="portfolio-title">Beranda</div>
             </div>
+            <div class="portfolio-item">
+                <img src="5.png" alt="New UI Design 1">
+                <div class="portfolio-title">Map</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="6.png" alt="New UI Design 2">
+                <div class="portfolio-title">Profil</div>
+            </div>
+        </div>
+
+        <h4>App Mobile Sederhana</h4>
+        <div class="portfolio">
             <div class="portfolio-item">
                 <img src="1.png" alt="Halaman Utama MyApp">
                 <div class="portfolio-title">Halaman Utama MyApp</div>
@@ -262,3 +277,13 @@
     </footer>
 
     <script>
+        // Script untuk dark mode toggle
+        const toggleButton = document.querySelector('.dark-mode-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
