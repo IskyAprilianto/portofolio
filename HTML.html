@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSky Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-light: #ffffff;
+            --text-light: #212529;
+            --background-dark: #121212;
+            --text-dark: #f8f9fa;
+            --primary-color: #007BFF;
+            --secondary-color: #6c757d;
+            --transition-duration: 0.3s;
+            --gradient-light: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            --gradient-dark: linear-gradient(to bottom, #121212, #343a40);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background var(--transition-duration), color var(--transition-duration);
+            scroll-behavior: smooth;
+        }
+
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 20px;
+            background: var(--gradient-light);
+            height: 100vh;
+        }
+
+        body.dark-mode .hero {
+            background: var(--gradient-dark);
+        }
+
+        .hero img {
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            transition: transform var(--transition-duration);
+            cursor: pointer;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero img:hover {
+            transform: scale(1.1);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .hero .photo-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        .section {
+            padding: 60px 30px;
+            background: var(--gradient-light);
+            transition: background var(--transition-duration);
+            color: var(--text-light);
+        }
+
+        body.dark-mode .section {
+            background: var(--gradient-dark);
+            color: var(--text-dark);
+        }
+
+        .section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+            cursor: pointer;
+        }
+
+        .portfolio img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .dark-mode-toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .section h3 {
+                font-size: 2rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>WebSky</h1>
+        <nav>
+            <a href="#about">Tentang</a>
+            <a href="#contact">Kontak</a>
+            <a href="#portfolio">Portofolio</a>
+            <span class="dark-mode-toggle">&#x1F319;</span>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="beranda.png" alt="Isky Dwi Aprilianto">
+        <div class="photo-caption">"Informatic Engineering"</div>
+        <h2>Hai... Saya Isky Dwi Aprilianto</h2>
+    </section>
+
+    <section class="section" id="about">
+        <h3>Tentang</h3>
+        <p>Saya adalah mahasiswa semester 6 jurusan Informatika di Universitas Trisakti dengan semangat besar untuk terus belajar dan berkembang. Saya percaya bahwa setiap pekerjaan, baik di bidang teknologi, desain, maupun lainnya, memerlukan kombinasi kreativitas, ketekunan, dan kemampuan analitis untuk menghasilkan solusi yang berarti dan berdampak positif. Selama masa studi, saya telah mempelajari berbagai keterampilan, mulai dari pengembangan aplikasi, analisis data, hingga desain antarmuka yang intuitif, dan terus berusaha untuk menerapkannya dalam proyek nyata.</p>
+    </section>
+
+    <section class="section" id="contact">
+        <h3>Kontak</h3>
+        <p>Email: iskydwi.aprilianto442@gmail.com</p>
+        <p>No. Telp: 085640980092</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/iskyaprilianto/" target="_blank">https://www.linkedin.com/in/iskyaprilianto/</a></p>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h3>Portofolio</h3>
+        <div class="portfolio">
+            <img src="2.png" alt="Rest Area UI Design">
+            <img src="1.png" alt="Halaman Utama MyApp">
+            <img src="4.png" alt="Detail Aplikasi">
+            <img src="3.png" alt="About Me">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 WebSky by Isky Dwi Aprilianto</p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.dark-mode-toggle');
+        const body = document.body;
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+        });
+    </script>
+</body>
+</html>
